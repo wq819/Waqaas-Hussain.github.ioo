@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waqaas Hussain | AI Developer </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a192f;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            top: 50%;
+            right: -5%;
+            animation-delay: 5s;
+        }
+
+        .shape3 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            bottom: -15%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        .shape4 {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            top: 20%;
+            right: 20%;
+            animation-delay: 7s;
+        }
+
+        .shape5 {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #30cfd0, #330867);
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 30px) rotate(240deg) scale(0.9);
+            }
+        }
+
+        
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particle-float 15s infinite ease-in-out;
+        }
+
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            padding: 1.2rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 4px 15px rgba(255,255,255,0.5);
+        }
+
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: white;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 10px rgba(255,255,255,0.5));
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 3rem;
+            line-height: 1.9;
+            max-width: 650px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: all 0.4s;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-5px);
+        }
+
+        /* Profile Card */
+        .profile-card {
+            position: relative;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 450px;
+            height: 450px;
+            margin: 0 auto;
+        }
+
+        .profile-ring {
+            position: absolute;
+            inset: -30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            border: 6px solid rgba(255,255,255,0.3);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+            font-weight: 900;
+            z-index: 1;
+        }
+
+        
+        .glass-section {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 4rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .glass-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.4s;
+            text-align: center;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .glass-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+        
+        .glass-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .glass-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .glass-card p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.95);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        
+        .project-showcase {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            margin-bottom: 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .project-icon-large {
+            width: 100%;
+            height: 300px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-icon-large svg {
+            width: 120px;
+            height: 120px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .project-content h3 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .project-content p {
+            color: rgba(255,255,255,0.95);
+            line-height: 1.9;
+            font-size: 1.15rem;
+        }
+
+        
+        .achievement-large {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            align-items: center;
+            transition: all 0.4s;
+        }
+
+        .achievement-large:hover {
+            transform: translateX(20px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .achievement-icon-large {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .achievement-icon-large svg {
+            width: 56px;
+            height: 56px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .achievement-large h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .achievement-large p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.9;
+            font-size: 1.1rem;
+        }
+
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card-glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s;
+        }
+
+        .contact-card-glass:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-icon-large {
+            width: 90px;
+            height: 90px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+        
+        .contact-icon-large svg {
+            width: 48px;
+            height: 48px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .contact-card-glass h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card-glass a {
+            color: rgba(255,255,255,0.95);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        .contact-card-glass a:hover {
+            text-decoration: underline;
+        }
+
+        
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+
+        
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .profile-wrapper {
+                width: 350px;
+                height: 350px;
+            }
+
+            .project-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-large {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .achievement-icon-large {
+                margin: 0 auto 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .glass-section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg">
+        <div class="bg-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+            <div class="shape shape4"></div>
+            <div class="shape shape5"></div>
+        </div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo">WH</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-label"> WELCOME TO MY PORTFOLIO</div>
+                <h1>Hi, I'm <span class="text">Waqaas Hussain</span></h1>
+                <p class="hero-description">
+                   I’m an Artificial Intelligence student at Aror University, Sukkur, with a strong passion for building intelligent solutions and using data-driven technologies to solve real-life problems
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch →</a>
+                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+                </div>
+            </div>
+
+                 <img class="profile" src="Profile.jpg" alt="Profile Image">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="about" class="glass-section">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Passionate AI Student & Problem Solver</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">2nd</div>
+                <div class="stat-label">Year BS AI Student</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Technical Skills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Professional Certifications</div>
+            </div>
+        </div>
+
+        <div class="glass-card" style="max-width: 900px; margin: 0 auto; text-align: left;">
+            <p style="font-size: 1.15rem; line-height: 2; margin-bottom: 1.5rem;">
+                My name is Waqaas Hussain and I am a dedicated second-year BS Artificial Intelligence student at Aror University, Sukkur. I am passionate about problem-solving, programming, and intelligent systems, with a strong interest in data-driven technologies.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 2; margin-bottom: 1.5rem;">
+                My goal is to build a solid foundation in Artificial Intelligence and develop practical skills that enable me to create meaningful and impactful solutions. I believe in continuous learning and staying updated with the latest advancements in AI and machine learning.
+            </p>
+
+        </div>
+    </section>
+
+    
+    <section id="skills" class="glass-section">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Building Solutions with Modern Technologies</p>
+        
+        <div class="glass-grid">
+            <div class="glass-card">
+                <div class="glass-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                </div>
+                <h3>C++ Programming</h3>
+                <p>foundation in object-oriented programming and system-level development</p>
+            </div>
+            <div class="glass-card">
+                <div class="glass-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                </div>
+                <h3>Java Development</h3>
+                <p>Proficient in Java with experience in building robust applications</p>
+            </div>
+            <div class="glass-card">
+                <div class="glass-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>Data Structures & Algorithms</h3>
+                <p>DSA with problem-solving capabilities</p>
+            </div>
+            <div class="glass-card">
+                <div class="glass-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                </div>
+                <h3>Web Technologies</h3>
+                <p>Modern web development with HTML, CSS, and JavaScript</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="projects" class="glass-section">
+        <h2 class="section-title">Featured Project</h2>
+        <p class="section-subtitle">Showcasing Innovation & Technical Excellence</p>
+        
+        <div class="project-showcase">
+            <div class="project-icon-large">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                    <path d="M12 2v7"/>
+                    <circle cx="12" cy="8" r="1"/>
+                </svg>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">DATA STRUCTURES</span>
+                <h3>Tasty Bite Management System</h3>
+                <p>A comprehensive data-structure-based project focusing on efficient data handling and management solutions. Implemented advanced algorithms for optimized performance and seamless user experience in restaurant operations.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="achievements" class="glass-section">
+        <h2 class="section-title">Achievements & Certifications</h2>
+        <p class="section-subtitle">Professional Development & Recognition</p>
+        
+        <div class="achievement-large">
+            <div class="achievement-icon-large">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+            </div>
+            <div>
+                <h3>Aspire Leaders Program (ALP2025, Cohort 4)</h3>
+                <p>Successfully completed the Aspire Leaders Program (ALP 2025, Cohort 4), a fully funded global leadership initiative by the Aspire Institute, co-founded by professors from Harvard Business School. This program enhanced my leadership capabilities and global perspective.</p>
+            </div>
+        </div>
+
+        <div class="achievement-large">
+            <div class="achievement-icon-large">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                </svg>
+            </div>
+            <div>
+                <h3>Generative AI Application Developer Certificate</h3>
+                <p>Successfully completed the Generative AI Application Developer Training under the NCEAC–HEC Program (October–November 2024). This comprehensive learning journey was organized by the UETIANS Lahore Endowment Foundation (USA) in collaboration with Pak Angels, Code Guru Pakistan, and iSPiRE Pakistan.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="glass-section">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Ready to collaborate on innovative projects</p>
+        
+        <div class="contact-grid">
+            <div class="contact-card-glass">
+                <div class="contact-icon-large">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
+                <h3>Email</h3>
+                 <a href="mailto:Waqaashussainqureshi@gmail.com">Waqaashussainqureshi@gmail.com</a>
+            <div class="contact grid">
+                <div class="contact-icon-large">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect x="2" y="9" width="4" height="10"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </div>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/waqaas-hussain-60a800297" target="_blank">linkedin.com/in/waqaas-hussain</a>
+            </div>
+            <div class="contact grid">
+                <div class="contact-icon-large">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                </div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/waqaas-hussain" target="_blank">github.com/waqaas-hussain</a>
+            </div>
+        </div>
+
+       

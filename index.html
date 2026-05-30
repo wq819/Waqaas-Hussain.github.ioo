@@ -6,6 +6,7 @@
 <title>Waqaas Hussain | AI Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   :root {
     --bg: #05080f;
@@ -434,7 +435,8 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    color: var(--accent);
   }
 
   .about-card h4 {
@@ -487,8 +489,9 @@
   }
 
   .skill-icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 20px;
+    color: var(--accent);
   }
 
   .skill-card h3 {
@@ -724,13 +727,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     flex-shrink: 0;
+    color: var(--accent);
   }
-
   .cl-email { background: rgba(0,217,255,0.1); }
-  .cl-linkedin { background: rgba(14,118,168,0.15); }
-  .cl-github { background: rgba(255,255,255,0.06); }
+  .cl-linkedin { background: rgba(14,118,168,0.15); color: #38bdf8; }
+  .cl-github { background: rgba(255,255,255,0.06); color: var(--text); }
 
   .contact-link-text strong {
     display: block;
@@ -901,6 +904,10 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li style="display:flex;align-items:center;gap:14px;margin-left:8px;">
+      <a href="https://github.com/wq819" target="_blank" rel="noopener" style="color:var(--muted);font-size:1.1rem;transition:color 0.2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/waqaas-hussain-60a800297" target="_blank" rel="noopener" style="color:var(--muted);font-size:1.1rem;transition:color 0.2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="fa-brands fa-linkedin-in"></i></a>
+    </li>
   </ul>
 </nav>
 
@@ -978,22 +985,22 @@
     </div>
     <div class="about-cards">
       <div class="about-card">
-        <div class="about-card-icon">🎓</div>
+        <div class="about-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <h4>2nd</h4>
         <p>Year BS AI Student at Aror University</p>
       </div>
       <div class="about-card">
-        <div class="about-card-icon">⚡</div>
+        <div class="about-card-icon"><i class="fa-solid fa-bolt"></i></div>
         <h4>4+</h4>
         <p>Core technical skills & frameworks</p>
       </div>
       <div class="about-card">
-        <div class="about-card-icon">🏆</div>
+        <div class="about-card-icon"><i class="fa-solid fa-trophy"></i></div>
         <h4>2</h4>
         <p>Professional certifications earned</p>
       </div>
       <div class="about-card">
-        <div class="about-card-icon">🌍</div>
+        <div class="about-card-icon"><i class="fa-solid fa-globe"></i></div>
         <h4>1</h4>
         <p>Global leadership program alumnus</p>
       </div>
@@ -1011,25 +1018,25 @@
 
   <div class="skills-grid">
     <div class="skill-card">
-      <div class="skill-icon">⚙️</div>
+      <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
       <h3>C++ Programming</h3>
       <p>Strong foundation in object-oriented programming and system-level development, with focus on performance and memory efficiency.</p>
       <span class="skill-tag">Systems &amp; OOP</span>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">☕</div>
+      <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
       <h3>Java Development</h3>
       <p>Proficient in Java with experience in building robust, scalable applications using core Java principles and design patterns.</p>
       <span class="skill-tag">Application Dev</span>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">🔗</div>
+      <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
       <h3>Data Structures &amp; Algorithms</h3>
       <p>Deep understanding of DSA with strong problem-solving capabilities — the backbone of every efficient intelligent system.</p>
       <span class="skill-tag">Problem Solving</span>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">🌐</div>
+      <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
       <h3>Web Technologies</h3>
       <p>Modern web development with HTML, CSS, and JavaScript — creating responsive, user-friendly interfaces for AI-powered applications.</p>
       <span class="skill-tag">Frontend Dev</span>
@@ -1060,7 +1067,7 @@
         <span class="ptag">OOP</span>
       </div>
     </div>
-    <div class="project-visual">🍽️</div>
+    <div class="project-visual"><i class="fa-solid fa-utensils" style="font-size:4rem;color:rgba(0,217,255,0.3)"></i></div>
   </div>
 </section>
 
@@ -1103,24 +1110,24 @@
       <p>Ready to collaborate on innovative projects or just want to connect? I'm always open to discussing AI, technology, and new opportunities.</p>
       <div class="contact-links">
         <a href="mailto:Waqaashussainqureshi@gmail.com" class="contact-link">
-          <div class="contact-link-icon cl-email">📧</div>
+          <div class="contact-link-icon cl-email"><i class="fa-solid fa-envelope"></i></div>
           <div class="contact-link-text">
             <strong>Email</strong>
             <span>Waqaashussainqureshi@gmail.com</span>
           </div>
         </a>
-        <a href="https://www.linkedin.com/in/waqaas-hussain-60a800297" target="_blank" class="contact-link">
-          <div class="contact-link-icon cl-linkedin">💼</div>
+        <a href="https://www.linkedin.com/in/waqaas-hussain-60a800297" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon cl-linkedin"><i class="fa-brands fa-linkedin-in"></i></div>
           <div class="contact-link-text">
             <strong>LinkedIn</strong>
             <span>linkedin.com/in/waqaas-hussain</span>
           </div>
         </a>
-        <a href="https://github.com/waqaas-hussain" target="_blank" class="contact-link">
-          <div class="contact-link-icon cl-github">🐙</div>
+        <a href="https://github.com/wq819" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon cl-github"><i class="fa-brands fa-github"></i></div>
           <div class="contact-link-text">
             <strong>GitHub</strong>
-            <span>github.com/waqaas-hussain</span>
+            <span>github.com/wq819</span>
           </div>
         </a>
       </div>
@@ -1151,7 +1158,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Waqaas Hussain. Crafted with precision.</p>
+  <p>© 2025 Waqaas Hussain. Crafted with precision.</p>
   <p>Built with <a href="#home">passion</a> · Sukkur, Sindh, Pakistan</p>
 </footer>
 

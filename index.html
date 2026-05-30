@@ -1,984 +1,1159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waqaas Hussain | AI Developer </title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #0a192f;
-            --blue: #3b82f6;
-            --purple: #8b5cf6;
-            --pink: #ec4899;
-            --cyan: #06b6d4;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1e293b;
-            overflow-x: hidden;
-        }
-
-        
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            overflow: hidden;
-        }
-
-        .bg-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .shape1 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            top: -10%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-
-        .shape2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            top: 50%;
-            right: -5%;
-            animation-delay: 5s;
-        }
-
-        .shape3 {
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            bottom: -15%;
-            left: 30%;
-            animation-delay: 10s;
-        }
-
-        .shape4 {
-            width: 350px;
-            height: 350px;
-            background: linear-gradient(135deg, #fa709a, #fee140);
-            top: 20%;
-            right: 20%;
-            animation-delay: 7s;
-        }
-
-        .shape5 {
-            width: 450px;
-            height: 450px;
-            background: linear-gradient(135deg, #30cfd0, #330867);
-            bottom: 10%;
-            right: 10%;
-            animation-delay: 3s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
-            }
-            33% {
-                transform: translate(50px, -50px) rotate(120deg) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 30px) rotate(240deg) scale(0.9);
-            }
-        }
-
-        
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: particle-float 15s infinite ease-in-out;
-        }
-
-        @keyframes particle-float {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(50px);
-                opacity: 0;
-            }
-        }
-
-        
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            z-index: 1000;
-            padding: 1.2rem 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .nav-links a:hover {
-            transform: translateY(-2px);
-            text-shadow: 0 4px 15px rgba(255,255,255,0.5);
-        }
-
-        
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 3rem 4rem;
-            position: relative;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-label {
-            color: white;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: white;
-            letter-spacing: -2px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #fff, #f0f0f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 2px 10px rgba(255,255,255,0.5));
-        }
-
-        .hero-description {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.95);
-            margin-bottom: 3rem;
-            line-height: 1.9;
-            max-width: 650px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            text-decoration: none;
-            transition: all 0.4s;
-            cursor: pointer;
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 400px;
-            height: 400px;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid white;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-            transform: translateY(-5px);
-        }
-
-        /* Profile Card */
-        .profile-card {
-            position: relative;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .profile-wrapper {
-            position: relative;
-            width: 450px;
-            height: 450px;
-            margin: 0 auto;
-        }
-
-        .profile-ring {
-            position: absolute;
-            inset: -30px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .profile-image {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-            border: 6px solid rgba(255,255,255,0.3);
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 8rem;
-            font-weight: 900;
-            z-index: 1;
-        }
-
-        
-        .glass-section {
-            padding: 6rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 4rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .glass-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 6rem;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            transition: all 0.4s;
-            text-align: center;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .glass-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-        }
-        
-        .glass-icon svg {
-            width: 48px;
-            height: 48px;
-            stroke: white;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .glass-card h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .glass-card p {
-            color: rgba(255,255,255,0.9);
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 6rem;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .stat-label {
-            color: rgba(255,255,255,0.95);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        
-        .project-showcase {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 4rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-            margin-bottom: 6rem;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .project-icon-large {
-            width: 100%;
-            height: 300px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .project-icon-large svg {
-            width: 120px;
-            height: 120px;
-            stroke: white;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .project-content h3 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: rgba(255,255,255,0.3);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-
-        .project-content p {
-            color: rgba(255,255,255,0.95);
-            line-height: 1.9;
-            font-size: 1.15rem;
-        }
-
-        
-        .achievement-large {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 3.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 3rem;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 3rem;
-            align-items: center;
-            transition: all 0.4s;
-        }
-
-        .achievement-large:hover {
-            transform: translateX(20px);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .achievement-icon-large {
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .achievement-icon-large svg {
-            width: 56px;
-            height: 56px;
-            stroke: white;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .achievement-large h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .achievement-large p {
-            color: rgba(255,255,255,0.9);
-            line-height: 1.9;
-            font-size: 1.1rem;
-        }
-
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .contact-card-glass {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 3rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s;
-        }
-
-        .contact-card-glass:hover {
-            transform: translateY(-15px);
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .contact-icon-large {
-            width: 90px;
-            height: 90px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-        }
-        
-        .contact-icon-large svg {
-            width: 48px;
-            height: 48px;
-            stroke: white;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .contact-card-glass h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card-glass a {
-            color: rgba(255,255,255,0.95);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            word-break: break-word;
-        }
-
-        .contact-card-glass a:hover {
-            text-decoration: underline;
-        }
-
-        
-        footer {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            padding: 3rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        footer p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
-        }
-
-        
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .profile-wrapper {
-                width: 350px;
-                height: 350px;
-            }
-
-            .project-showcase {
-                grid-template-columns: 1fr;
-            }
-
-            .achievement-large {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .achievement-icon-large {
-                margin: 0 auto 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 6rem 1.5rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .profile-wrapper {
-                width: 280px;
-                height: 280px;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .glass-section {
-                padding: 4rem 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waqaas Hussain | AI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05080f;
+    --surface: #0c1220;
+    --surface2: #111827;
+    --accent: #00d9ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --text: #e8edf5;
+    --muted: #6b7a99;
+    --border: rgba(255,255,255,0.07);
+    --glow: 0 0 40px rgba(0,217,255,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ─── NOISE TEXTURE ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ─── GRID BG ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,217,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,217,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5,8,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--text); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    padding: 9px 22px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    color: var(--accent) !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.1em !important;
+    transition: background 0.2s, color 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent) !important;
+    color: var(--bg) !important;
+  }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow span {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .eyebrow-line {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .hero-name .line2 {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 44px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,217,255,0.3);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Hero image */
+  .hero-image-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .hero-img-frame {
+    width: 280px;
+    height: 340px;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .hero-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 3px;
+    z-index: -1;
+  }
+
+  .hero-img-frame::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: -16px;
+    bottom: -16px;
+    border: 1px solid rgba(0,217,255,0.2);
+    border-radius: 2px;
+    z-index: -2;
+  }
+
+  .hero-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 2px;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  .hero-img-tag {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dot-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent3);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .hero-img-tag span {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* ─── STATS ─── */
+  .stats-bar {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    background: rgba(12,18,32,0.6);
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 500px;
+    margin-bottom: 60px;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { padding-top: 80px; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    font-size: 0.97rem;
+  }
+
+  .about-text strong { color: var(--text); font-weight: 500; }
+
+  .about-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .about-card:hover {
+    border-color: rgba(0,217,255,0.3);
+    transform: translateY(-3px);
+  }
+
+  .about-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(0,217,255,0.15), rgba(124,58,237,0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+  }
+
+  .about-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .about-card p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ─── SKILLS ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .skill-card:hover::before { transform: scaleX(1); }
+
+  .skill-card:hover {
+    border-color: rgba(0,217,255,0.2);
+    transform: translateY(-4px);
+  }
+
+  .skill-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .skill-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .skill-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .skill-tag {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    background: rgba(0,217,255,0.08);
+    border: 1px solid rgba(0,217,255,0.2);
+    color: var(--accent);
+  }
+
+  /* ─── PROJECT ─── */
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s;
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,217,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .project-card:hover { border-color: rgba(0,217,255,0.25); }
+
+  .project-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(124,58,237,0.12);
+    border: 1px solid rgba(124,58,237,0.3);
+    color: #a78bfa;
+    margin-bottom: 24px;
+  }
+
+  .project-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .project-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 28px;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .ptag {
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .project-visual {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0,217,255,0.1), rgba(124,58,237,0.1));
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    flex-shrink: 0;
+  }
+
+  /* ─── ACHIEVEMENTS ─── */
+  .achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .achievement-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: start;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .achievement-card:hover {
+    border-color: rgba(16,185,129,0.3);
+    transform: translateX(4px);
+  }
+
+  .achievement-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(0,217,255,0.15);
+    line-height: 1;
+    min-width: 60px;
+    text-align: right;
+  }
+
+  .achievement-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .achievement-content p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .achievement-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.25);
+    color: var(--accent3);
+    font-weight: 500;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { padding-bottom: 80px; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .contact-info p {
+    color: var(--muted);
+    margin-bottom: 44px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .contact-link-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .cl-email { background: rgba(0,217,255,0.1); }
+  .cl-linkedin { background: rgba(14,118,168,0.15); }
+  .cl-github { background: rgba(255,255,255,0.06); }
+
+  .contact-link-text strong {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  .contact-link-text span {
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  /* Contact form side */
+  .contact-form-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px;
+  }
+
+  .contact-form-wrap h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 28px;
+    color: var(--text);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 13px 16px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.93rem;
+    transition: border-color 0.2s;
+    outline: none;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,217,255,0.25);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer p {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-name { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-title { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-desc { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-actions { animation: fadeUp 0.6s 0.4s ease both; }
+  .hero-image-wrap { animation: fadeUp 0.8s 0.2s ease both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    #home { padding: 100px 24px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-image-wrap { order: -1; }
+    .hero-img-frame { width: 200px; height: 240px; }
+    section { padding: 70px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-cards { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .project-card { grid-template-columns: 1fr; }
+    .project-visual { display: none; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .stats-bar { padding: 32px 24px; gap: 40px; flex-wrap: wrap; }
+    footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="animated-bg">
-        <div class="bg-shapes">
-            <div class="shape shape1"></div>
-            <div class="shape shape2"></div>
-            <div class="shape shape3"></div>
-            <div class="shape shape4"></div>
-            <div class="shape shape5"></div>
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">WH<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" style="padding:0; max-width:none;">
+  <div style="min-height:100vh; display:flex; align-items:center; padding:120px 60px 80px; max-width:1320px; margin:0 auto; width:100%;">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span>AI Developer &amp; Student</span>
         </div>
-        <div class="particles" id="particles"></div>
+        <h1 class="hero-name">
+          <div>Waqaas</div>
+          <div class="line2">Hussain</div>
+        </h1>
+        <p class="hero-title">Building the Future with Artificial Intelligence</p>
+        <p class="hero-desc">
+          BS AI student at Aror University, Sukkur, passionate about intelligent systems and data-driven solutions that make a real-world impact.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">
+            Get In Touch
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#projects" class="btn-ghost">
+            View My Work
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-img-frame">
+          <img src="https://wq819.github.io/Waqaas-Hussain.github.ioo/Profile.jpg" alt="Waqaas Hussain" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#0c1220,#1a2540)'; this.parentElement.innerHTML+='<div style=\'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-size:5rem;font-weight:800;color:rgba(0,217,255,0.2)\'>WH</div>'">
+        </div>
+        <div class="hero-img-tag">
+          <div class="dot-pulse"></div>
+          <span>Open to opportunities</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">2nd</div>
+    <div class="stat-label">Year BS AI Student</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4+</div>
+    <div class="stat-label">Technical Skills</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Certifications</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Curiosity</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">About Me</div>
+  <div class="section-title">Dedicated to Building<br>Intelligent Solutions</div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>My name is <strong>Waqaas Hussain</strong> — a dedicated second-year BS Artificial Intelligence student at <strong>Aror University, Sukkur</strong>. I am passionate about problem-solving, programming, and intelligent systems, with a strong interest in data-driven technologies.</p>
+      <p>My goal is to build a solid foundation in Artificial Intelligence and develop practical skills that enable me to create meaningful and impactful solutions. I believe in <strong>continuous learning</strong> and staying updated with the latest advancements in AI and machine learning.</p>
+      <p>Beyond academics, I've had the privilege of participating in global leadership programs and industry-certified training, shaping me into a well-rounded technologist ready to tackle real-world challenges.</p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <div class="about-card-icon">🎓</div>
+        <h4>2nd</h4>
+        <p>Year BS AI Student at Aror University</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">⚡</div>
+        <h4>4+</h4>
+        <p>Core technical skills & frameworks</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🏆</div>
+        <h4>2</h4>
+        <p>Professional certifications earned</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🌍</div>
+        <h4>1</h4>
+        <p>Global leadership program alumnus</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">Technical Skills</div>
+  <div class="section-title">Building With Modern<br>Technologies</div>
+  <p class="section-sub">A toolkit forged through rigorous study and hands-on project experience.</p>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <h3>C++ Programming</h3>
+      <p>Strong foundation in object-oriented programming and system-level development, with focus on performance and memory efficiency.</p>
+      <span class="skill-tag">Systems &amp; OOP</span>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">☕</div>
+      <h3>Java Development</h3>
+      <p>Proficient in Java with experience in building robust, scalable applications using core Java principles and design patterns.</p>
+      <span class="skill-tag">Application Dev</span>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔗</div>
+      <h3>Data Structures &amp; Algorithms</h3>
+      <p>Deep understanding of DSA with strong problem-solving capabilities — the backbone of every efficient intelligent system.</p>
+      <span class="skill-tag">Problem Solving</span>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <h3>Web Technologies</h3>
+      <p>Modern web development with HTML, CSS, and JavaScript — creating responsive, user-friendly interfaces for AI-powered applications.</p>
+      <span class="skill-tag">Frontend Dev</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">Featured Project</div>
+  <div class="section-title">Showcasing Innovation &amp;<br>Technical Excellence</div>
+  <p class="section-sub">Real-world applications of data structures and algorithms.</p>
+
+  <div class="project-card">
+    <div>
+      <div class="project-label">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+        Data Structures
+      </div>
+      <h3>Tasty Bite Management System</h3>
+      <p>A comprehensive data-structure-based restaurant management project focusing on efficient data handling. Implemented advanced algorithms for optimized performance and seamless user experience in restaurant operations — demonstrating real-world DSA application.</p>
+      <div class="project-tags">
+        <span class="ptag">C++</span>
+        <span class="ptag">Data Structures</span>
+        <span class="ptag">Algorithms</span>
+        <span class="ptag">OOP</span>
+      </div>
+    </div>
+    <div class="project-visual">🍽️</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-tag">Achievements</div>
+  <div class="section-title">Professional Development<br>&amp; Recognition</div>
+  <p class="section-sub">Certifications and programs that have shaped my technical and leadership journey.</p>
+
+  <div class="achievements-list">
+    <div class="achievement-card">
+      <div class="achievement-num">01</div>
+      <div class="achievement-content">
+        <h3>Aspire Leaders Program (ALP2025, Cohort 4)</h3>
+        <p>Successfully completed this fully funded global leadership initiative by the Aspire Institute, co-founded by professors from Harvard Business School. This prestigious program enhanced my leadership capabilities, global perspective, and collaborative problem-solving skills across an international cohort.</p>
+        <span class="achievement-badge">✦ Harvard-affiliated Program</span>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">02</div>
+      <div class="achievement-content">
+        <h3>Generative AI Application Developer Certificate</h3>
+        <p>Successfully completed the Generative AI Application Developer Training under the NCEAC–HEC Program (October–November 2024). This comprehensive training was organized by the UETIANS Lahore Endowment Foundation (USA) in collaboration with Pak Angels, Code Guru Pakistan, and iSPiRE Pakistan — equipping me with hands-on GenAI development skills.</p>
+        <span class="achievement-badge">✦ NCEAC–HEC Certified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-tag">Contact</div>
+      <h2>Let's Build Something Together</h2>
+      <p>Ready to collaborate on innovative projects or just want to connect? I'm always open to discussing AI, technology, and new opportunities.</p>
+      <div class="contact-links">
+        <a href="mailto:Waqaashussainqureshi@gmail.com" class="contact-link">
+          <div class="contact-link-icon cl-email">📧</div>
+          <div class="contact-link-text">
+            <strong>Email</strong>
+            <span>Waqaashussainqureshi@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/waqaas-hussain-60a800297" target="_blank" class="contact-link">
+          <div class="contact-link-icon cl-linkedin">💼</div>
+          <div class="contact-link-text">
+            <strong>LinkedIn</strong>
+            <span>linkedin.com/in/waqaas-hussain</span>
+          </div>
+        </a>
+        <a href="https://github.com/waqaas-hussain" target="_blank" class="contact-link">
+          <div class="contact-link-icon cl-github">🐙</div>
+          <div class="contact-link-text">
+            <strong>GitHub</strong>
+            <span>github.com/waqaas-hussain</span>
+          </div>
+        </a>
+      </div>
     </div>
 
-    
-    <nav>
-        <div class="nav-container">
-            <div class="logo">WH</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="contact-form-wrap">
+      <h3>Send a Message</h3>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="john@example.com">
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" placeholder="Project Collaboration">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="5" placeholder="Tell me about your project or idea..."></textarea>
+      </div>
+      <button class="form-submit" onclick="this.textContent='Message Sent ✓'; this.style.background='#10b981'; setTimeout(()=>{this.textContent='Send Message'; this.style.background='';},3000)">Send Message</button>
+    </div>
+  </div>
+</section>
 
-    
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-label"> WELCOME TO MY PORTFOLIO</div>
-                <h1>Hi, I'm <span class="text">Waqaas Hussain</span></h1>
-                <p class="hero-description">
-                   I’m an Artificial Intelligence student at Aror University, Sukkur, with a strong passion for building intelligent solutions and using data-driven technologies to solve real-life problems
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch →</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
-                </div>
-            </div>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Waqaas Hussain. Crafted with precision.</p>
+  <p>Built with <a href="#home">passion</a> · Sukkur, Sindh, Pakistan</p>
+</footer>
 
-                 <img class="profile" src="Profile.jpg" alt="Profile Image">
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-    <section id="about" class="glass-section">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Passionate AI Student & Problem Solver</p>
-        
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">2nd</div>
-                <div class="stat-label">Year BS AI Student</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">4+</div>
-                <div class="stat-label">Technical Skills</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Professional Certifications</div>
-            </div>
-        </div>
-
-        <div class="glass-card" style="max-width: 900px; margin: 0 auto; text-align: left;">
-            <p style="font-size: 1.15rem; line-height: 2; margin-bottom: 1.5rem;">
-                My name is Waqaas Hussain and I am a dedicated second-year BS Artificial Intelligence student at Aror University, Sukkur. I am passionate about problem-solving, programming, and intelligent systems, with a strong interest in data-driven technologies.
-            </p>
-            <p style="font-size: 1.15rem; line-height: 2; margin-bottom: 1.5rem;">
-                My goal is to build a solid foundation in Artificial Intelligence and develop practical skills that enable me to create meaningful and impactful solutions. I believe in continuous learning and staying updated with the latest advancements in AI and machine learning.
-            </p>
-
-        </div>
-    </section>
-
-    
-    <section id="skills" class="glass-section">
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Building Solutions with Modern Technologies</p>
-        
-        <div class="glass-grid">
-            <div class="glass-card">
-                <div class="glass-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
-                    </svg>
-                </div>
-                <h3>C++ Programming</h3>
-                <p>foundation in object-oriented programming and system-level development</p>
-            </div>
-            <div class="glass-card">
-                <div class="glass-icon">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                        <line x1="9" y1="9" x2="9.01" y2="9"/>
-                        <line x1="15" y1="9" x2="15.01" y2="9"/>
-                    </svg>
-                </div>
-                <h3>Java Development</h3>
-                <p>Proficient in Java with experience in building robust applications</p>
-            </div>
-            <div class="glass-card">
-                <div class="glass-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                        <path d="M2 17l10 5 10-5"/>
-                        <path d="M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <h3>Data Structures & Algorithms</h3>
-                <p>DSA with problem-solving capabilities</p>
-            </div>
-            <div class="glass-card">
-                <div class="glass-icon">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="2" y1="12" x2="22" y2="12"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                    </svg>
-                </div>
-                <h3>Web Technologies</h3>
-                <p>Modern web development with HTML, CSS, and JavaScript</p>
-            </div>
-        </div>
-    </section>
-
-    
-    <section id="projects" class="glass-section">
-        <h2 class="section-title">Featured Project</h2>
-        <p class="section-subtitle">Showcasing Innovation & Technical Excellence</p>
-        
-        <div class="project-showcase">
-            <div class="project-icon-large">
-                <svg viewBox="0 0 24 24">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                    <polyline points="9 22 9 12 15 12 15 22"/>
-                    <path d="M12 2v7"/>
-                    <circle cx="12" cy="8" r="1"/>
-                </svg>
-            </div>
-            <div class="project-content">
-                <span class="project-tag">DATA STRUCTURES</span>
-                <h3>Tasty Bite Management System</h3>
-                <p>A comprehensive data-structure-based project focusing on efficient data handling and management solutions. Implemented advanced algorithms for optimized performance and seamless user experience in restaurant operations.</p>
-            </div>
-        </div>
-    </section>
-
-    
-    <section id="achievements" class="glass-section">
-        <h2 class="section-title">Achievements & Certifications</h2>
-        <p class="section-subtitle">Professional Development & Recognition</p>
-        
-        <div class="achievement-large">
-            <div class="achievement-icon-large">
-                <svg viewBox="0 0 24 24">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                </svg>
-            </div>
-            <div>
-                <h3>Aspire Leaders Program (ALP2025, Cohort 4)</h3>
-                <p>Successfully completed the Aspire Leaders Program (ALP 2025, Cohort 4), a fully funded global leadership initiative by the Aspire Institute, co-founded by professors from Harvard Business School. This program enhanced my leadership capabilities and global perspective.</p>
-            </div>
-        </div>
-
-        <div class="achievement-large">
-            <div class="achievement-icon-large">
-                <svg viewBox="0 0 24 24">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <polyline points="21 15 16 10 5 21"/>
-                </svg>
-            </div>
-            <div>
-                <h3>Generative AI Application Developer Certificate</h3>
-                <p>Successfully completed the Generative AI Application Developer Training under the NCEAC–HEC Program (October–November 2024). This comprehensive learning journey was organized by the UETIANS Lahore Endowment Foundation (USA) in collaboration with Pak Angels, Code Guru Pakistan, and iSPiRE Pakistan.</p>
-            </div>
-        </div>
-    </section>
-
-    
-    <section id="contact" class="glass-section">
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="section-subtitle">Ready to collaborate on innovative projects</p>
-        
-        <div class="contact-grid">
-            <div class="contact-card-glass">
-                <div class="contact-icon-large">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                </div>
-                <h3>Email</h3>
-                 <a href="mailto:Waqaashussainqureshi@gmail.com">Waqaashussainqureshi@gmail.com</a>
-            <div class="contact grid">
-                <div class="contact-icon-large">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                        <rect x="2" y="9" width="4" height="10"/>
-                        <circle cx="4" cy="4" r="2"/>
-                    </svg>
-                </div>
-                <h3>LinkedIn</h3>
-                <a href="https://www.linkedin.com/in/waqaas-hussain-60a800297" target="_blank">linkedin.com/in/waqaas-hussain</a>
-            </div>
-            <div class="contact grid">
-                <div class="contact-icon-large">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                    </svg>
-                </div>
-                <h3>GitHub</h3>
-                <a href="https://github.com/waqaas-hussain" target="_blank">github.com/waqaas-hussain</a>
-            </div>
-        </div>
-
-       
-
+</body>
+</html>
